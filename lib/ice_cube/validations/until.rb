@@ -38,7 +38,8 @@ module IceCube
       end
 
       def build_s(builder)
-        date = time.strftime(IceCube.to_s_time_format)
+        date = time.strftime(IceCube.to_s_time_format) +
+               '('+I18n.t("ice_cube.date.day_names")[time.wday]+')'
         builder.piece(:until) << I18n.t('ice_cube.until', date: date)
       end
 
